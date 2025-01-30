@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os #aedan, chapter 3!
+from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,7 +39,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "movies",
+    'home',
+    'movies',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +58,8 @@ ROOT_URLCONF = "gt_movie_store.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        'DIRS': [os.path.join(BASE_DIR,
+                              'gt_movie_store/templates')],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -122,3 +126,7 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+STATICFILES_DIRS = [
+    BASE_DIR / 'gt_movie_store/static/',
+]   # aedan chapter 3
+
