@@ -129,3 +129,7 @@ STATICFILES_DIRS = [
     BASE_DIR / 'gt_movie_store/static/',
 ]   # aedan chapter 3
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+#misha chapter 5
+
