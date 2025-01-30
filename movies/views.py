@@ -16,6 +16,7 @@ movies = [
     },
 ]
 def index(request):
+    movie = movies[id -1]
     template_data = {}
     template_data['title'] = 'Movies'
     template_data['movies'] = movies
