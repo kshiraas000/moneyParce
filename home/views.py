@@ -7,9 +7,9 @@ def index(request):
 
 def about(request):
     template_data = {}
-    template_data['title'] = 'About'
+    template_data['title'] = 'Financial Tips'
     return render(request,
-                  'home/about.html',
+                  'home/financial_tips.html',
                   {'template_data': template_data})
 
 # erm, in fact, all of base home was created by...

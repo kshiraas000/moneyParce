@@ -1,26 +1,65 @@
 {% extends 'base.html' %}
+
 {% block content %}
-<header class="masthead bg-index text-white text-center py-4">
-  <div class="container d-flex align-items-center flex-
-  column pt-2">
-
-  </div>
-    <!-- MOVED H2 AND P OUT OF DIV -->
-    <h2>Money Parce</h2>
-    <p>Your Path to Financial Freedom!</p>
-</header>
-<div class="p-3">
+<!-- Hero Section -->
+<header class="masthead bg-success text-white text-center py-5">
   <div class="container">
-    <div class="row mt-3">
-      <div class="col mx-auto text-center mb-3">
-        <h4>Welcome to the best money manager!!</h4>
-                  <h2>
-            CS 2340 Project 2
-        </h2>
-        <p>Created by: <br>Aashna<br>Aedan<br>Misha<br>Niki<br>Alli</p>
-      </div>
+    <h1 class="display-4 fw-bold">Money Parce</h1>
+    <p class="lead mb-4">CS 2340 Project 2</p>
+    <a href=/accounts/signup class="btn btn-light btn-lg">Register Today!</a>
+  </div>
+</header>
 
+<!-- Features Section -->
+<section id="features" class="py-5">
+  <div class="container">
+    <h3 class="text-center mb-5">Features Available to Registered Users</h3>
+    <div class="row text-center">
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h4 class="card-title text-success">Register Spending</h4>
+            <p class="card-text text-muted">Track your daily expenses to monitor and control your spending habits.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h4 class="card-title text-success">Register Income</h4>
+            <p class="card-text text-muted">Keep a record of your income sources to manage your cash flow effectively.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h4 class="card-title text-success">Create Budgets</h4>
+            <p class="card-text text-muted">Set financial goals and create personalized budgets to stay on track.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h4 class="card-title text-success">Edit and Delete Budgets</h4>
+            <p class="card-text text-muted">Modify or delete budgets as your financial needs change over time.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h4 class="card-title text-success">View Personalized Graphs</h4>
+            <p class="card-text text-muted">Visualize your spending, income, and budget progress with customized graphs to better understand your data.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</section>
+
 {% endblock content %}
+

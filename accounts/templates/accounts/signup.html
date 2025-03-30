@@ -11,9 +11,11 @@
             <form method="POST">
               {% csrf_token %}
               {{ template_data.form.as_p }}
-              <button type="submit"
-                class="btn bg-dark text-white">Sign Up
-              </button>
+              <div class="d-flex justify-content-between align-items-center">
+                <button type="submit" class="btn bg-dark text-white">Sign Up</button>
+                <span class="text-end">Already a Registered User?</span>
+                <a href=/accounts/login class="btn btn-sm btn-outline-dark">Login</a>
+              </div>
             </form>
           </div>
         </div>
