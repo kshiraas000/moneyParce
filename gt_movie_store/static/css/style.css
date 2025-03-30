@@ -1,5 +1,5 @@
 .bg-index{
-  background: url("/static/img/background.jpg") no-repeat
+  background: url("static/img/background.jpg") no-repeat
     fixed;
   background-size: 100% auto;
 }
@@ -7,17 +7,17 @@
   color: #FFFEF6 !important;
 }
 .bg-dark {
-  background-color: #2E2E2E !important;
+  background-color: #238845 !important;
 }
 .ms-footer {
-  background-color: #202020;
+  background-color: #41ab5d;
 }
 .ms-footer p {
-  color: #7F7F7F;
+  color: #ffffff;
   font-size: 13px;
 }
 .ms-footer a:hover {
-  color: #6ab43e;
+  color: #2e43c8;
   text-decoration: none;
 }
 .ms-footer-bottom span{
