@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<style>
+  body {
+    background: url("{% static 'img/finance_tips.jpg' %}") no-repeat center center fixed;
+    background-size: cover;
+  }
+  .content-container {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+  }
+</style>
+
+<div class="p-3">
+  <div class="container content-container">
+    <div class="row mt-3">
+      <div class="col-md-6 mx-auto mb-3 text-center">
+        <h2 class="text-success">💰 Financial Tips and Tricks 💡</h2>
+        <hr />
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-6 mx-auto mb-3 tip p-4 border rounded shadow bg-light">
+        <h2 class="text-primary">💾 Saving Smart</h2>
+        <p>Saving money isn’t about being cheap—it’s about being smart! Aim to save at least <strong>20% of your income</strong> and put it in a high-yield savings account. Automate your savings so you don’t even have to think about it.</p>
+        <p class="fw-bold">💡 Fun Challenge: Try a <span class="text-danger">no-spend week</span> or save all your $5 bills for a month!</p>
+      </div>
+      <div class="col-md-6 mx-auto mb-3 tip p-4 border rounded shadow bg-light">
+        <h2 class="text-warning">🛍 Spending Wisely</h2>
+        <p>Impulse buying is a budget’s worst enemy! Use the <strong>30-day rule</strong>: If you want something, wait 30 days. If you still want it, it’s probably worth it.</p>
+        <p class="fw-bold">🎯 Pro Tip: Compare the cost of an item to hours worked—would you trade <span class="text-success">five hours of work</span> for that fancy coffee maker?</p>
+      </div>
+      <div class="col-md-6 mx-auto mb-3 tip p-4 border rounded shadow bg-light">
+        <h2 class="text-info">📊 Budgeting Basics</h2>
+        <p>Budgets don’t have to be boring! The <strong>50/30/20 rule</strong> is a simple way to get started: 50% for needs (rent, groceries), 30% for wants (fun, dining out), and 20% for savings.</p>
+        <p class="fw-bold">📌 Try This: Use a budgeting app or go <span class="text-danger">old school</span> with an envelope system!</p>
+      </div>
+      <div class="col-md-6 mx-auto mb-3 tip p-4 border rounded shadow bg-light">
+        <h2 class="text-success">📈 Investing Insights</h2>
+        <p>Investing might sound intimidating, but it’s your best bet for long-term wealth. Start early—even <strong>small amounts compound</strong> over time.</p>
+        <p class="fw-bold">🚀 Golden Rule: Time in the market beats timing the market. Let your money work for you!</p>
+        <p>💹 Spread your investments across different assets to reduce risk (hello, diversification!).</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
