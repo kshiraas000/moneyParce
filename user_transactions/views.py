@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from .models import Transaction
 from .forms import TransactionForm
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def add_transaction(request):
     if request.method == 'POST':
         form = TransactionForm(request.POST)
