@@ -6,7 +6,7 @@
   <div class="container">
     <h1 class="display-4 fw-bold">Money Parce</h1>
     <p class="lead mb-4">CS 2340 Project 2</p>
-    <a href=/accounts/signup class="btn btn-light btn-lg">Register Today!</a>
+    <a href="/accounts/signup" class="btn btn-light btn-lg">Register Today!</a>
   </div>
 </header>
 
@@ -18,16 +18,9 @@
       <div class="col-md-4">
         <div class="card mb-4">
           <div class="card-body">
-            <h4 class="card-title text-success">Register Spending</h4>
+            <h4 class="card-title text-success">Track Transactions</h4>
             <p class="card-text text-muted">Track your daily expenses to monitor and control your spending habits.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card mb-4">
-          <div class="card-body">
-            <h4 class="card-title text-success">Register Income</h4>
-            <p class="card-text text-muted">Keep a record of your income sources to manage your cash flow effectively.</p>
+            <a href="{% url 'add_transaction' %}" class="btn btn-outline-success mt-2">Add Transaction</a>
           </div>
         </div>
       </div>
@@ -58,8 +51,8 @@
         </div>
       </div>
     </div>
+
+
   </div>
 </section>
-
 {% endblock content %}
-

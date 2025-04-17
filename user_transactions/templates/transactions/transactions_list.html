@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Your Transactions</h2>
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Type</th>
+      <th>Amount</th>
+      <th>Category</th>
+      <th>Description</th>
+    </tr>
+    {% for transaction in transactions %}
+      <tr>
+        <td>{{ transaction.date }}</td>
+        <td>{{ transaction.transaction_type }}</td>
+        <td>{{ transaction.amount }}</td>
+        <td>{{ transaction.category }}</td>
+        <td>{{ transaction.description }}</td>
+      </tr>
+    {% empty %}
+      <tr><td colspan="5">No transactions yet.</td></tr>
+    {% endfor %}
+  </table>
+{% endblock %}
