@@ -1,5 +1,5 @@
 """
-URL configuration for gt_movie_store project.
+URL configuration for moneyParce project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
@@ -23,9 +23,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
 
-    path('movies/', include('movies.urls')),
+
     path('accounts/', include('accounts.urls')),
-    path('cart/', include('cart.urls')),
+
     path('transactions/', include('user_transactions.urls')),
 ]
 urlpatterns += static(settings.MEDIA_URL,

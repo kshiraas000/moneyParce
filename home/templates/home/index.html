@@ -50,9 +50,17 @@
           </div>
         </div>
       </div>
+      <!-- New Transactions History Card -->
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h4 class="card-title text-success">Transactions History</h4>
+            <p class="card-text text-muted">See a detailed log of all your past income and spending transactions.</p>
+            <a href="{% url 'transactions_list' %}" class="btn btn-outline-success mt-2">View History</a>
+          </div>
+        </div>
+      </div>
     </div>
-
-
   </div>
 </section>
 {% endblock content %}
