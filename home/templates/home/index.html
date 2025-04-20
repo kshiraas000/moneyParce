@@ -20,7 +20,7 @@
           <div class="card-body">
             <h4 class="card-title text-success">Track Daily Transactions</h4>
             <p class="card-text text-muted">Track your daily expenses to monitor and control your spending habits.</p>
-            <a href="{% url 'add_transaction' %}" class="btn btn-outline-success mt-2">Add Transaction</a>
+            <a href="{% url 'user_transactions:add_transaction' %}" class="btn btn-outline-success mt-2">Add Transaction</a>
           </div>
         </div>
       </div>
@@ -32,6 +32,15 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h4 class="card-title text-success">Register Income and Spending</h4>
+            <p class="card-text text-muted">Register your income and spending to view your spending habits.</p>
+            <a href="{% url 'register_income_spending:register_income_spending' %}" class="btn btn-outline-success mt-2">Register Income/Spending</a>
+          </div>
+        </div>
     </div>
     <div class="row text-center">
       <div class="col-md-4">
@@ -56,7 +65,7 @@
           <div class="card-body">
             <h4 class="card-title text-success">Transactions History</h4>
             <p class="card-text text-muted">See a detailed log of all your past income and spending transactions.</p>
-            <a href="{% url 'transactions_list' %}" class="btn btn-outline-success mt-2">View History</a>
+            <a href="{% url 'user_transactions:transactions_list' %}" class="btn btn-outline-success mt-2">View History</a>
           </div>
         </div>
       </div>

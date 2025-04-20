@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from .models import Transaction
 from .forms import TransactionForm
 
 def add_transaction(request):
@@ -9,7 +8,7 @@ def add_transaction(request):
             transaction = form.save(commit=False)
             transaction.user = request.user
             transaction.save()
-            return redirect('transactions')
+            return redirect('user_transactions')
     else:
         form = TransactionForm()
-    return render(request, 'transactions/add_transaction.html', {'form': form})
+    return render(request, 'user_transactions/add_transaction.html', {'form': form})

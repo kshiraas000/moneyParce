@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import date
 
 class Transaction(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -11,7 +12,7 @@ class Transaction(models.Model):
     )
     category = models.CharField(max_length=100)
     description = models.TextField(blank=True)
-    date = models.DateField()
+    date = models.DateField(default=date.today)
 
     def __str__(self):
         return f"{self.user.username} - {self.amount} on {self.date}"
