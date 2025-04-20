@@ -1,10 +1,45 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>Register Income or Spending</h2>
-  <form method="POST">
+<div style="max-width: 600px; margin: 40px auto; padding: 30px; border-radius: 10px; background-color: #f4fdf7; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+  <h2 style="text-align: center; margin-bottom: 25px; color: #2e7d32;">Register Income or Spending</h2>
+
+  <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save</button>
+
+    <div style="margin-bottom: 15px;">
+      <label for="id_transaction_type" style="display: block; font-weight: bold; margin-bottom: 5px;">Transaction Type</label>
+      {{ form.transaction_type }}
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label for="id_amount" style="display: block; font-weight: bold; margin-bottom: 5px;">Amount</label>
+      {{ form.amount }}
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label for="id_category" style="display: block; font-weight: bold; margin-bottom: 5px;">Category</label>
+      {{ form.category }}
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label for="id_description" style="display: block; font-weight: bold; margin-bottom: 5px;">Description</label>
+      {{ form.description }}
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label for="id_frequency" style="display: block; font-weight: bold; margin-bottom: 5px;">Frequency</label>
+      {{ form.frequency }}
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label for="id_date" style="display: block; font-weight: bold; margin-bottom: 5px;">Date</label>
+      {{ form.date }}
+    </div>
+
+    <button type="submit" style="width: 100%; background-color: #2e7d32; color: white; padding: 12px; border: none; border-radius: 6px; font-size: 16px; cursor: pointer;">
+      Save Entry
+    </button>
   </form>
+</div>
 {% endblock %}

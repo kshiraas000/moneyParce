@@ -11,6 +11,3 @@ def about(request):
     return render(request,
                   'home/financial_tips.html',
                   {'template_data': template_data})
-
-# erm, in fact, all of base home was created by...
-# ~ AEDAN, CHAPTER 2 :D ~
