@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
+    <div style="
+  background-image: url('{% static 'img/transaction_bkgd.png' %}');
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center;
+  padding: 60px 20px;
+  min-height: 100vh;
+">
 <div style="max-width: 600px; margin: 40px auto; padding: 30px; background-color: #f9f9f9; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
   <h2 style="text-align: center; color: #2e7d32; margin-bottom: 20px;">Edit Transaction</h2>
 
@@ -27,4 +35,5 @@
     </button>
   </form>
 </div>
+    </div>
 {% endblock %}

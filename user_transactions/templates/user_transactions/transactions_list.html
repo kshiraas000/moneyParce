@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
+    <div style="
+  background-image: url('{% static 'img/transaction_bkgd.png' %}');
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center;
+  padding: 60px 20px;
+  min-height: 100vh;
+">
 <div class="container my-5">
   <h2 class="text-center mb-4">Your Transaction History</h2>
 
@@ -38,4 +46,5 @@
     </table>
   </div>
 </div>
+    </div>
 {% endblock %}
