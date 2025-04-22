@@ -1,11 +1,11 @@
 from django.db.models import Sum
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from register_income_spending.models import PlannedTransaction
+from user_transactions.models import Transaction
 
 @login_required
 def spending_report(request):
-    user_data = PlannedTransaction.objects.filter(user=request.user)
+    user_data = Transaction.objects.filter(user=request.user)
 
     # Total income vs spending
     income_total = user_data.filter(transaction_type='income').aggregate(Sum('amount'))['amount__sum'] or 0

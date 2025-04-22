@@ -17,7 +17,8 @@ def register_income_spending(request):
 
             Transaction.objects.create(
                 user=request.user,
-                category=transaction_category,
+                transaction_type=planned.transaction_type,
+                category=planned.category,
                 amount=planned.amount,
                 description=planned.description,
                 date=planned.date
