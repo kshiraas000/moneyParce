@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load budget_extras %}
+{% load static %}
+
+{% block content %}
+<h2 class="text-center mt-4">Your Budgets</h2>
+<div class="text-center mb-3">
+  <a href="{% url 'budget-create' %}" class="btn btn-success">+ Add Budget</a>
+</div>
+<div class="container">
+  <ul class="list-group">
+{% for budget in object_list %}
+  {% with spent=budget_spending|dict_get:budget.id %}
+    <li class="list-group-item">
+      <div class="d-flex justify-content-between align-items-center mb-1">
+        <div><strong>{{ budget.category }}</strong></div>
+        <div>
+          <a href="{% url 'budget-edit' budget.pk %}" class="btn btn-sm btn-outline-primary me-1">Edit</a>
+          <a href="{% url 'budget-delete' budget.pk %}" class="btn btn-sm btn-outline-danger">Delete</a>
+        </div>
+      </div>
+
+      <div class="text-muted">
+        Budgeted: ${{ budget.amount|floatformat:2 }} —
+        <span class="{% if spent > budget.amount %}text-danger{% endif %}">
+          ${{ spent|floatformat:2 }} spent
+        </span><br>
+        Remaining:
+        <span class="{% if spent > budget.amount %}text-danger fw-bold{% endif %}">
+          ${{ budget_remaining|dict_get:budget.id|floatformat:2 }}
+        </span>
+      </div>
+
+      <div class="progress mt-2" style="height: 10px;">
+        <div class="progress-bar {% if spent > budget.amount %}bg-danger{% else %}bg-success{% endif %}"
+             role="progressbar"
+             style="width: {{ budget_percentage|dict_get:budget.id|floatformat:0 }}%; max-width: 100%;">
+        </div>
+      </div>
+    </li>
+  {% endwith %}
+{% endfor %}
+
+
+  </ul>
+  <hr>
+<div class="text-end mt-3">
+  <strong>Total Budget:</strong> ${{ total_budget|floatformat:2 }}<br>
+  <strong>Total Spent:</strong> ${{ total_spent|floatformat:2 }}<br>
+  <strong>Remaining:</strong>
+  <span class="{% if total_spent > total_budget %}text-danger fw-bold{% endif %}">
+    ${{ total_remaining|floatformat:2 }}
+  </span>
+</div>
+</div>
+
+<br><br><br><br><br><br><br><br><br><br>
+
+{% endblock %}

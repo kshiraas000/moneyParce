@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from datetime import date
+from budgets.models import Budget
+
 
 class Transaction(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -11,6 +13,7 @@ class Transaction(models.Model):
         default='deposit'  # ← Add this
     )
     category = models.CharField(max_length=100)
+    budget = models.ForeignKey(Budget, on_delete=models.SET_NULL, null=True, blank=True)
     description = models.TextField(blank=True)
     date = models.DateField(default=date.today)
 
