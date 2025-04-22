@@ -1,13 +1,34 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-<div class="container mt-4">
-  <h2>Delete Budget</h2>
-  <p>Are you sure you want to delete the budget for "<strong>{{ object.category }}</strong>"?</p>
-  <form method="post">
-    {% csrf_token %}
-    <button type="submit" class="btn btn-danger">Yes, delete</button>
-    <a href="{% url 'budget-list' %}" class="btn btn-secondary">Cancel</a>
-  </form>
+<div style="
+  background-image: url('{% static 'img/budget.png' %}');
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center;
+  padding: 60px 20px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+">
+  <div style="
+    background-color: #eaf7ec;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  ">
+    <h2>Delete Budget</h2>
+    <p>Are you sure you want to delete the budget for "<strong>{{ object.category }}</strong>"?</p>
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger">Yes, delete</button>
+      <a href="{% url 'budget-list' %}" class="btn btn-secondary ms-2">Cancel</a>
+    </form>
+  </div>
 </div>
 {% endblock %}

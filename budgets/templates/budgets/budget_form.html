@@ -1,13 +1,33 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-<div class="container mt-4">
-  <h2>{% if object %}Edit Budget{% else %}New Budget{% endif %}</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-success">Save</button>
-    <a href="{% url 'budget-list' %}" class="btn btn-secondary">Cancel</a>
-  </form>
+<div style="
+  background-image: url('{% static 'img/budget.png' %}');
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center;
+  padding: 60px 20px;
+  min-height: 100vh;
+">
+  <div style="
+    background-color: #eaf7ec;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  ">
+    <h2 class="text-center">{% if object %}Edit Budget{% else %}New Budget{% endif %}</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <div class="text-center mt-3">
+        <button type="submit" class="btn btn-success">Save</button>
+        <a href="{% url 'budget-list' %}" class="btn btn-secondary">Cancel</a>
+      </div>
+    </form>
+  </div>
 </div>
 {% endblock %}
+
