@@ -11,3 +11,17 @@ def about(request):
     return render(request,
                   'home/financial_tips.html',
                   {'template_data': template_data})
+
+#aashna added code
+def spending_report(request):
+    data = [
+        ['Category', 'Amount'],
+        ['Income', 1200],
+        ['Groceries', 300],
+        ['Rent', 600],
+        ['Entertainment', 150],
+    ]
+    context = {
+        'chart_data': data
+    }
+    return render(request, 'home/spending_report.html', context)

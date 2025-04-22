@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Spending & Income Overview</h2>
+
+  <div id="bar_chart_div" style="width: 100%; height: 400px;" class="mb-5"></div>
+
+  <h4 class="text-center mb-3">Spending Breakdown by Category</h4>
+  <div id="pie_chart_div" style="width: 100%; height: 400px;"></div>
+</div>
+
+<!-- Google Charts -->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawCharts);
+
+  function drawCharts() {
+    // Bar chart (Income vs Spending)
+    const barData = google.visualization.arrayToDataTable({{ bar_chart_data|safe }});
+    const barOptions = {
+      title: 'Income vs Spending',
+      chartArea: {width: '60%'},
+      hAxis: {title: 'Amount', minValue: 0},
+      vAxis: {title: 'Type'}
+    };
+    const barChart = new google.visualization.BarChart(document.getElementById('bar_chart_div'));
+    barChart.draw(barData, barOptions);
+
+    // Pie chart (Spending by Category)
+    const pieData = google.visualization.arrayToDataTable({{ pie_chart_data|safe }});
+    const pieOptions = {
+      title: 'Spending by Category',
+      pieHole: 0.4
+    };
+    const pieChart = new google.visualization.PieChart(document.getElementById('pie_chart_div'));
+    pieChart.draw(pieData, pieOptions);
+  }
+</script>
+{% endblock %}

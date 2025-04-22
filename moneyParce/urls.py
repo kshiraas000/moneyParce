@@ -29,6 +29,9 @@ urlpatterns = [
     path('transactions/', include('user_transactions.urls', namespace='user_transactions')),
 
     path('register-income-spending/', include('register_income_spending.urls')),
+
+    path('reports/', include('reports.urls')),
+
 ]
 urlpatterns += static(settings.MEDIA_URL,
     document_root=settings.MEDIA_ROOT)
