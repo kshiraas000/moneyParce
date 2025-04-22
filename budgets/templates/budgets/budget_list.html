@@ -3,57 +3,69 @@
 {% load static %}
 
 {% block content %}
-<h2 class="text-center mt-4">Your Budgets</h2>
-<div class="text-center mb-3">
-  <a href="{% url 'budget-create' %}" class="btn btn-success">+ Add Budget</a>
-</div>
-<div class="container">
-  <ul class="list-group">
-{% for budget in object_list %}
-  {% with spent=budget_spending|dict_get:budget.id %}
-    <li class="list-group-item">
-      <div class="d-flex justify-content-between align-items-center mb-1">
-        <div><strong>{{ budget.category }}</strong></div>
-        <div>
-          <a href="{% url 'budget-edit' budget.pk %}" class="btn btn-sm btn-outline-primary me-1">Edit</a>
-          <a href="{% url 'budget-delete' budget.pk %}" class="btn btn-sm btn-outline-danger">Delete</a>
-        </div>
-      </div>
+<div style="
+  background-image: url('{% static 'img/transaction_bkgd.png' %}');
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center;
+  padding: 60px 20px;
+  min-height: 100vh;
+">
+  <div style="max-width: 800px; margin: 0 auto; padding: 30px; border-radius: 10px; background-color: #f4fdf7; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
 
-      <div class="text-muted">
-        Budgeted: ${{ budget.amount|floatformat:2 }} —
-        <span class="{% if spent > budget.amount %}text-danger{% endif %}">
-          ${{ spent|floatformat:2 }} spent
-        </span><br>
-        Remaining:
-        <span class="{% if spent > budget.amount %}text-danger fw-bold{% endif %}">
-          ${{ budget_remaining|dict_get:budget.id|floatformat:2 }}
+    <h2 style="text-align: center; margin-bottom: 25px; color: #2e7d32;">Your Budgets</h2>
+
+    <div style="text-align: center; margin-bottom: 25px;">
+      <a href="{% url 'budget-create' %}" class="btn btn-success">+ Add Budget</a>
+    </div>
+
+    {% for budget in object_list %}
+      {% with spent=budget_spending|dict_get:budget.id %}
+        <div style="background-color: white; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <strong style="font-size: 1.1rem;">{{ budget.category }}</strong>
+            <div>
+              <a href="{% url 'budget-edit' budget.pk %}" class="btn btn-sm btn-outline-primary me-2">Edit</a>
+              <a href="{% url 'budget-delete' budget.pk %}" class="btn btn-sm btn-outline-danger">Delete</a>
+            </div>
+          </div>
+
+          <div style="font-size: 0.95rem; color: #555;">
+            Budgeted: ${{ budget.amount|floatformat:2 }} —
+            <span style="color: {% if spent > budget.amount %}#c62828{% else %}#2e7d32{% endif %};">
+              ${{ spent|floatformat:2 }} spent
+            </span><br>
+            Remaining:
+            <span style="font-weight: bold; color: {% if spent > budget.amount %}#c62828{% else %}#2e7d32{% endif %};">
+              ${{ budget_remaining|dict_get:budget.id|floatformat:2 }}
+            </span>
+          </div>
+
+          <div class="progress mt-2" style="height: 10px; margin-top: 10px;">
+            <div class="progress-bar {% if spent > budget.amount %}bg-danger{% else %}bg-success{% endif %}"
+                 role="progressbar"
+                 style="width: {{ budget_percentage|dict_get:budget.id|floatformat:0 }}%; max-width: 100%;">
+            </div>
+          </div>
+        </div>
+      {% endwith %}
+    {% empty %}
+      <p style="text-align: center; color: #666;">No budgets added yet.</p>
+    {% endfor %}
+
+    <hr>
+
+    <div style="text-align: right; font-size: 1.1rem;">
+      <div><strong>Total Budget:</strong> ${{ total_budget|floatformat:2 }}</div>
+      <div><strong>Total Spent:</strong> ${{ total_spent|floatformat:2 }}</div>
+      <div>
+        <strong>Remaining:</strong>
+        <span style="color: {% if total_spent > total_budget %}#c62828{% else %}#2e7d32{% endif %}; font-weight: bold;">
+          ${{ total_remaining|floatformat:2 }}
         </span>
       </div>
+    </div>
 
-      <div class="progress mt-2" style="height: 10px;">
-        <div class="progress-bar {% if spent > budget.amount %}bg-danger{% else %}bg-success{% endif %}"
-             role="progressbar"
-             style="width: {{ budget_percentage|dict_get:budget.id|floatformat:0 }}%; max-width: 100%;">
-        </div>
-      </div>
-    </li>
-  {% endwith %}
-{% endfor %}
-
-
-  </ul>
-  <hr>
-<div class="text-end mt-3">
-  <strong>Total Budget:</strong> ${{ total_budget|floatformat:2 }}<br>
-  <strong>Total Spent:</strong> ${{ total_spent|floatformat:2 }}<br>
-  <strong>Remaining:</strong>
-  <span class="{% if total_spent > total_budget %}text-danger fw-bold{% endif %}">
-    ${{ total_remaining|floatformat:2 }}
-  </span>
+  </div>
 </div>
-</div>
-
-<br><br><br><br><br><br><br><br><br><br>
-
 {% endblock %}
