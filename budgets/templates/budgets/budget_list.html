@@ -30,15 +30,20 @@
             </div>
           </div>
 
-          <div style="font-size: 0.95rem; color: #555;">
-            Budgeted: ${{ budget.amount|floatformat:2 }} —
-            <span style="color: {% if spent > budget.amount %}#c62828{% else %}#2e7d32{% endif %};">
-              ${{ spent|floatformat:2 }} spent
-            </span><br>
-            Remaining:
-            <span style="font-weight: bold; color: {% if spent > budget.amount %}#c62828{% else %}#2e7d32{% endif %};">
-              ${{ budget_remaining|dict_get:budget.id|floatformat:2 }}
-            </span>
+          <div style="font-size: 0.95rem; color: #555; line-height: 1.6;">
+            <div><strong>Budgeted:</strong> ${{ budget.amount|floatformat:2 }}</div>
+            <div>
+              <strong>Spent:</strong>
+              <span style="color: {% if spent > budget.amount %}#c62828{% else %}#2e7d32{% endif %};">
+                ${{ spent|floatformat:2 }}
+              </span>
+            </div>
+            <div>
+              <strong>Remaining:</strong>
+              <span style="font-weight: bold; color: {% if spent > budget.amount %}#c62828{% else %}#2e7d32{% endif %};">
+                ${{ budget_remaining|dict_get:budget.id|floatformat:2 }}
+              </span>
+            </div>
           </div>
 
           <div class="progress mt-2" style="height: 10px; margin-top: 10px;">
